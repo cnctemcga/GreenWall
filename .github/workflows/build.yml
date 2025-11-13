@@ -172,7 +172,6 @@ jobs:
           npm install --global create-dmg
           create-dmg --skip-code-sign build/bin/green-wall.app
           mv green-wall.dmg ../../green-wall-${{ matrix.name }}-${{ runner.arch }}.dmg
-        continue-on-error: true
         
       - name: Create Linux archive
         if: matrix.os == 'ubuntu-latest'
