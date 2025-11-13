@@ -185,7 +185,7 @@ jobs:
             find . -name "*.app" -type d
             exit 1
           fi
- 
+
       - name: Create Linux archive
         if: matrix.os == 'ubuntu-latest'
         run: |
