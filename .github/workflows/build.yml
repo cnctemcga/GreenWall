@@ -173,7 +173,7 @@ jobs:
           cd build/bin
           create-dmg --skip-code-sign "green-wall.app"
           mv green-wall.dmg ../../green-wall-${{ matrix.name }}-${{ runner.arch }}.dmg
-        
+ 
       - name: Create Linux archive
         if: matrix.os == 'ubuntu-latest'
         run: |
