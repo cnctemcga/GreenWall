@@ -170,7 +170,7 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           npm install --global create-dmg
-          create-dmg --skip-code-sign "build/bin/green-wall.app"
+          create-dmg build/bin/green-wall.app
           mv green-wall.dmg ../../green-wall-${{ matrix.name }}-${{ runner.arch }}.dmg
 
       - name: Create Linux archive
