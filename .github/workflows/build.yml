@@ -170,7 +170,9 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           cd build/bin
-          zip -r ../../green-wall-${{ matrix.name }}-${{ runner.arch }}.zip green-wall.app
+          npm install --global create-dmg
+          create-dmg green-wall.app
+          mv green-wall.dmg ../../green-wall-${{ matrix.name }}-${{ runner.arch }}.dmg
 
       - name: Create Linux archive
         if: matrix.os == 'ubuntu-latest'
@@ -190,7 +192,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: green-wall-${{ matrix.name }}-${{ runner.arch }}
-          path: green-wall-${{ matrix.name }}-${{ runner.arch }}.zip
+          path: green-wall-${{ matrix.name }}-${{ runner.arch }}.dmg
           if-no-files-found: error
           retention-days: 30
 
